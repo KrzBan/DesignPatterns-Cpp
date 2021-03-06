@@ -144,6 +144,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Patterns\Builder.h" />
+    <ClInclude Include="Patterns\Factory.h" />
+    <ClInclude Include="Patterns\Prototype.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

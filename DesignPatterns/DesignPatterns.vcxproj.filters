@@ -26,5 +26,11 @@
     <ClInclude Include="Patterns\Builder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Patterns\Factory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns\Prototype.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
