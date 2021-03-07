@@ -5,6 +5,7 @@
 #include "Patterns/Prototype.h"
 #include "Patterns/Singleton.h"
 #include "Patterns/Adapter.h"
+#include "Patterns/Bridge.h"
 
 int main() {
 
@@ -57,7 +58,7 @@ int main() {
 		std::cout << "Done!\n";
 	}
 
-	if (1) {
+	if (0) {
 		using namespace Adapter;
 
 		Service service;
@@ -68,6 +69,17 @@ int main() {
 		VecAdapter<int> adapter(myVec);
 
 		service.PrintIterable(adapter.data.begin(), adapter.data.end());
+	}
+
+	if (1) {
+		using namespace Bridge;
+
+		//ConsolePrinter knows how to print all kinds of documents all by itself,
+		//but we use we call those different methods b using distinguishable classes.
+		//Printer class, in this scenarion, acts as a bridge between DocumentX and ConsolePrinter.
+		ConsolePrinter consolePrinter;
+		DocumentB db{ consolePrinter };
+		db.Print();
 	}
 
 	return 0;
