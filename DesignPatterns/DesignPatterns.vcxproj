@@ -140,12 +140,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Patterns\Builder.cpp" />
+    <ClCompile Include="Patterns\Singleton.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Patterns\Builder.h" />
     <ClInclude Include="Patterns\Factory.h" />
     <ClInclude Include="Patterns\Prototype.h" />
+    <ClInclude Include="Patterns\Singleton.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
