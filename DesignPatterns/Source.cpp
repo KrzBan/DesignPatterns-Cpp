@@ -4,6 +4,7 @@
 #include "Patterns/Factory.h"
 #include "Patterns/Prototype.h"
 #include "Patterns/Singleton.h"
+#include "Patterns/Adapter.h"
 
 int main() {
 
@@ -41,7 +42,7 @@ int main() {
 		std::cout << "Hired!\n";
 	}
 
-	if (1) {
+	if (0) {
 		using namespace Singleton;
 
 		//Works through get, there a static instance exists
@@ -54,7 +55,20 @@ int main() {
 		auto anotherDouble = NoInstanceSingleton::GetDouble();
 
 		std::cout << "Done!\n";
-
 	}
+
+	if (1) {
+		using namespace Adapter;
+
+		Service service;
+
+		Vec3<int> myVec{ 1,2,3 };//treating Vec3 data as packed and tribvially iterable can be justified, but nonetheless, it's UB.
+
+		//Vec3 is incompatible with Service, we can't modify Service, so we create an adapter
+		VecAdapter<int> adapter(myVec);
+
+		service.PrintIterable(adapter.data.begin(), adapter.data.end());
+	}
+
 	return 0;
 }

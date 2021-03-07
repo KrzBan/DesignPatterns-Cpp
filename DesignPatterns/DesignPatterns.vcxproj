@@ -144,6 +144,7 @@
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Patterns\Adapter.h" />
     <ClInclude Include="Patterns\Builder.h" />
     <ClInclude Include="Patterns\Factory.h" />
     <ClInclude Include="Patterns\Prototype.h" />
