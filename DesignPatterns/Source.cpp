@@ -6,6 +6,7 @@
 #include "Patterns/Singleton.h"
 #include "Patterns/Adapter.h"
 #include "Patterns/Bridge.h"
+#include "Patterns/Composite.h"
 
 int main() {
 
@@ -71,7 +72,7 @@ int main() {
 		service.PrintIterable(adapter.data.begin(), adapter.data.end());
 	}
 
-	if (1) {
+	if (0) {
 		using namespace Bridge;
 
 		//ConsolePrinter knows how to print all kinds of documents all by itself,
@@ -80,6 +81,19 @@ int main() {
 		ConsolePrinter consolePrinter;
 		DocumentB db{ consolePrinter };
 		db.Print();
+	}
+
+	if (1) {
+		using namespace Composite;
+
+		BadClass badClass{};
+		auto badSum = badClass.Sum();
+
+		CompositeClass compositeClass{};
+		auto compositeSum = compositeClass.Sum();
+
+		//Well, it's more of a structural pattern, so nothing to see here
+		//CompositeClass is just much more scalable than BadClass, that's all
 	}
 
 	return 0;
