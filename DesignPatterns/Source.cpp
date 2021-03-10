@@ -7,6 +7,7 @@
 #include "Patterns/Adapter.h"
 #include "Patterns/Bridge.h"
 #include "Patterns/Composite.h"
+#include "Patterns/Decorator.h"
 
 int main() {
 
@@ -83,7 +84,7 @@ int main() {
 		db.Print();
 	}
 
-	if (1) {
+	if (0) {
 		using namespace Composite;
 
 		BadClass badClass{};
@@ -96,5 +97,21 @@ int main() {
 		//CompositeClass is just much more scalable than BadClass, that's all
 	}
 
+	if (1) {
+		using namespace Decorator;
+
+		//dynamic decorator
+		//has no accessto circles' methods and/or variables
+		Circle circle{ 5 };
+		ColoredShape coloredCircle{ circle, 125,0,0 };
+
+		//static decorator
+		//has access to all members
+		//no runtime decoration
+		StaticTranslatedShape<StaticColoredShape<Square>> square{ 5,10, 0,255,0,10 };
+
+		std::cout << "Square has a size of: " << square.edge;
+		std::cout << " and a translation of: " << square.x << ", " << square.y << '\n';
+	}
 	return 0;
 }

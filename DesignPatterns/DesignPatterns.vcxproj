@@ -148,6 +148,7 @@
     <ClInclude Include="Patterns\Bridge.h" />
     <ClInclude Include="Patterns\Builder.h" />
     <ClInclude Include="Patterns\Composite.h" />
+    <ClInclude Include="Patterns\Decorator.h" />
     <ClInclude Include="Patterns\Factory.h" />
     <ClInclude Include="Patterns\Prototype.h" />
     <ClInclude Include="Patterns\Singleton.h" />
