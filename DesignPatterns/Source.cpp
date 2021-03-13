@@ -8,6 +8,9 @@
 #include "Patterns/Bridge.h"
 #include "Patterns/Composite.h"
 #include "Patterns/Decorator.h"
+#include "Patterns/Facade.h"
+#include "Patterns/Flyweight.h"
+#include "Patterns/Proxy.h"
 
 int main() {
 
@@ -97,7 +100,7 @@ int main() {
 		//CompositeClass is just much more scalable than BadClass, that's all
 	}
 
-	if (1) {
+	if (0) {
 		using namespace Decorator;
 
 		//dynamic decorator
@@ -112,6 +115,54 @@ int main() {
 
 		std::cout << "Square has a size of: " << square.edge;
 		std::cout << " and a translation of: " << square.x << ", " << square.y << '\n';
+	}
+
+	if (0) {
+		using namespace Facade;
+
+		//Even though, VulkanWindow is a fairly complicated class,
+		//Window provides a simple and intuitive api forthe user
+
+		//To properly show how the Facade pattern works, you need a 
+		//complicated system, which clashes with an idea of a simple example.
+		//I hope this and .h file suffices.
+
+		Window window{ 640,480 };
+	}
+
+	if (0) {
+		using namespace Flyweight;
+
+		//The same idea that's behind database normalization
+		//Separate data from eachother, reduce redundancy
+		//Less memory usage
+		//std::string_view follow the same pattern
+
+		//both last names are separate objects
+		User user1{ "Mike", "Smith" };
+		User user2{ "Jane", "Smith" };
+		assert(&user1.lastName != &user2.lastName);
+
+		//Here, last names occupy the same memory
+		MemoryEfficientUser user3{ "John", "Doe" };
+		MemoryEfficientUser user4{ "Anne", "Doe" };
+		assert(&user3.lastName.get() == &user4.lastName.get());
+	}
+
+	if (1) {
+		using namespace Proxy;
+
+		//smart_pointers are examples of Proxies
+		//something that takes a class and makes it lazy is also a proxy
+		//Proxy<t> would behave like T, but add some additional funcionality to it
+
+		Property<std::string> stringProperty{};
+		assert(stringProperty.IsSet() == false);
+
+		stringProperty = "Hello World!";
+		assert(stringProperty.IsSet() == true);
+		
+		std::cout << (std::string)stringProperty << '\n';
 	}
 	return 0;
 }

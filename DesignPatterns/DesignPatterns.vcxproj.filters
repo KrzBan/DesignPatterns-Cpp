@@ -50,5 +50,14 @@
     <ClInclude Include="Patterns\Decorator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Patterns\Facade.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns\Flyweight.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns\Proxy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
