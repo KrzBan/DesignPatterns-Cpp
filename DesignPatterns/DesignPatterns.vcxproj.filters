@@ -74,5 +74,11 @@
     <ClInclude Include="Patterns\Behavioral\NullObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Patterns\Behavioral\Observer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns\Behavioral\State.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

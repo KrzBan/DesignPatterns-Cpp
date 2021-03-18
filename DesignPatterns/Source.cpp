@@ -18,6 +18,9 @@
 #include "Patterns/Behavioral/Iterator.h"
 #include "Patterns/Behavioral/Mediator.h"
 #include "Patterns/Behavioral/NullObject.h"
+#include "Patterns/Behavioral/Observer.h"
+#include "Patterns/Behavioral/State.h"
+
 
 int main() {
 
@@ -251,7 +254,7 @@ int main() {
 			std::cout << pElem->value << '\n';
 		}
 
-		if (1) {
+		if (0) {
 			using namespace NullObject;
 
 			DummyPrinter dmPrinter;
@@ -262,5 +265,31 @@ int main() {
 			doc.Print();
 		}
 	}
+
+	if (0) {
+		using namespace Observer;
+
+		Data data{};
+		data.SetData(10);
+
+		DataObserver dataObserver{};
+		data.Subscribe(&dataObserver);
+
+		data.SetData(20);
+		data.SetData(30);
+
+		data.Unsubscribe(&dataObserver);
+		data.SetData(40);
+	}
+
+	if (1) {
+		using namespace StateNS;
+
+		StateMachine sm{};
+		sm.AddRule(State::Start, Event::Any, State::Grounded);
+		sm.AddRule(State::Grounded, Event::Jump, State::Airborne);
+		sm.Options();
+	}
+
 	return 0;
 }
