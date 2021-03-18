@@ -1,16 +1,23 @@
 #include <iostream>
 
-#include "Patterns/Builder.h"
-#include "Patterns/Factory.h"
-#include "Patterns/Prototype.h"
-#include "Patterns/Singleton.h"
-#include "Patterns/Adapter.h"
-#include "Patterns/Bridge.h"
-#include "Patterns/Composite.h"
-#include "Patterns/Decorator.h"
-#include "Patterns/Facade.h"
-#include "Patterns/Flyweight.h"
-#include "Patterns/Proxy.h"
+#include "Patterns/Creational/Builder.h"
+#include "Patterns/Creational/Factory.h"
+#include "Patterns/Creational/Prototype.h"
+#include "Patterns/Creational/Singleton.h"
+
+#include "Patterns/Structual/Adapter.h"
+#include "Patterns/Structual/Bridge.h"
+#include "Patterns/Structual/Composite.h"
+#include "Patterns/Structual/Decorator.h"
+#include "Patterns/Structual/Facade.h"
+#include "Patterns/Structual/Flyweight.h"
+#include "Patterns/Structual/Proxy.h"
+
+#include "Patterns/Behavioral/ChainOfResponsibility.h"
+#include "Patterns/Behavioral/Command.h"
+#include "Patterns/Behavioral/Iterator.h"
+#include "Patterns/Behavioral/Mediator.h"
+#include "Patterns/Behavioral/NullObject.h"
 
 int main() {
 
@@ -90,6 +97,14 @@ int main() {
 	if (0) {
 		using namespace Composite;
 
+		//Composite let's us "compose" our data in a tree like structure
+		//Example: Who's the tallest peron in the world?
+		//World->FindTallest(), go through each continent,
+		//Continent->FindTallest(), go through each country,
+		//Country->FindTallest(), go through each city....
+		//City->FindTallest(), finally, go through every person
+		//we propagate work down the tree, using less and less generalized data structures
+
 		BadClass badClass{};
 		auto badSum = badClass.Sum();
 
@@ -149,7 +164,7 @@ int main() {
 		assert(&user3.lastName.get() == &user4.lastName.get());
 	}
 
-	if (1) {
+	if (0) {
 		using namespace Proxy;
 
 		//smart_pointers are examples of Proxies
@@ -163,6 +178,89 @@ int main() {
 		assert(stringProperty.IsSet() == true);
 		
 		std::cout << (std::string)stringProperty << '\n';
+	}
+
+	if (0) {
+		using namespace ChainOfResponsibility;
+		//simply a linkedList, where each node also stores the location 
+		//of data they modify
+		std::shared_ptr<Data> myData = std::make_shared<Data>( 1,2,3, 4.0 );
+
+		Mod modList{ myData };
+		TranslateMod trMod1{ myData, 1, 0, 0 };
+		IncreaseMod incrMod{ myData, 10.0 };
+		TranslateMod trMod2{ myData, 0, 2, 3 };
+
+		modList.Add(&trMod1);
+		modList.Add(&incrMod);
+		modList.Add(&trMod2);
+
+		std::cout << myData->x << " " << myData->y << " " << myData->z << " " << myData->d << '\n';
+		modList.Handle();
+		std::cout << myData->x << " " << myData->y << " " << myData->z << " " << myData->d << '\n';
+
+		//other example from "Design Patterns in Modern C++" shows
+		//a more automated system, automatically adding and removing
+		//mods as we declare them, but it makes use of other design
+		//patterns, not yet mentioned, and also boost::magic, I'll revisit it later
+	}
+
+	if (0) {
+		using namespace Command;
+
+		HardToLog htl{ 1,2 };
+		htl.GetX();
+		htl.SetY(10);
+
+		EasyToLog etl{ 5,10 };
+		etl.Command( ETLCommand{ Action::SET, ETLParam::x, 10} );
+		etl.Command( ETLCommand{ Action::INCREASE, ETLParam::x, 10 });
+		etl.Command( ETLCommand{ Action::DECREASE, ETLParam::y, 2 });
+		auto x = etl.Command(ETLCommand{ Action::GET, ETLParam::x, 0 });
+		auto queriedY = etl.Query(ETLQuery{ ETLParam::y });
+	}
+
+	if (0) {
+		using namespace Iterator;
+
+		//Used all over the place, Iterator is just some object, that points to something
+		//but also, knows where the next (and or prev/other) object in a container is
+		//pointers work just fine, easily adaptable with reverse iterator 
+		//Node based iterators require a little more work
+
+		Iterable it{};
+
+		for (auto& elem : it) {
+			std::cout << elem << '\n';
+		}
+	}
+
+	if (0) {
+		using namespace Mediator;
+
+		//Mediator can connect several systems togheter,
+		//allowing for smoother communication
+		//Entity component system is also probably a sort of mediator
+
+		Manager mgr;
+		Object obj1(mgr, 1);
+		Object obj2(mgr, -234);
+		Object obj3(mgr, 1000);
+
+		for (auto& pElem : mgr.objects) {
+			std::cout << pElem->value << '\n';
+		}
+
+		if (1) {
+			using namespace NullObject;
+
+			DummyPrinter dmPrinter;
+			//I really really need a printer
+			//But I really really don't want to implement one
+			//I just need Document to work
+			Document doc("My String", dmPrinter);
+			doc.Print();
+		}
 	}
 	return 0;
 }

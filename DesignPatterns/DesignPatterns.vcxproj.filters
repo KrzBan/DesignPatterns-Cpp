@@ -18,45 +18,60 @@
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Patterns\Builder.cpp">
+    <ClCompile Include="Patterns\Creational\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Patterns\Singleton.cpp">
+    <ClCompile Include="Patterns\Creational\Singleton.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Patterns\Builder.h">
+    <ClInclude Include="Patterns\Creational\Builder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Patterns\Factory.h">
+    <ClInclude Include="Patterns\Creational\Factory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Patterns\Prototype.h">
+    <ClInclude Include="Patterns\Creational\Prototype.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Patterns\Singleton.h">
+    <ClInclude Include="Patterns\Creational\Singleton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Patterns\Adapter.h">
+    <ClInclude Include="Patterns\Structual\Adapter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Patterns\Bridge.h">
+    <ClInclude Include="Patterns\Structual\Bridge.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Patterns\Composite.h">
+    <ClInclude Include="Patterns\Structual\Composite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Patterns\Decorator.h">
+    <ClInclude Include="Patterns\Structual\Decorator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Patterns\Facade.h">
+    <ClInclude Include="Patterns\Structual\Facade.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Patterns\Flyweight.h">
+    <ClInclude Include="Patterns\Structual\Flyweight.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Patterns\Proxy.h">
+    <ClInclude Include="Patterns\Structual\Proxy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns\Behavioral\ChainOfResponsibility.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns\Behavioral\Command.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns\Behavioral\Iterator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns\Behavioral\Mediator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns\Behavioral\NullObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

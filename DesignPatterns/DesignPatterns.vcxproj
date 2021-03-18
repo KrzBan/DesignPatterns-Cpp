@@ -92,6 +92,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -106,6 +107,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -120,6 +122,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -134,6 +137,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -143,22 +147,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Patterns\Builder.cpp" />
-    <ClCompile Include="Patterns\Singleton.cpp" />
+    <ClCompile Include="Patterns\Creational\Builder.cpp" />
+    <ClCompile Include="Patterns\Creational\Singleton.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Patterns\Adapter.h" />
-    <ClInclude Include="Patterns\Bridge.h" />
-    <ClInclude Include="Patterns\Builder.h" />
-    <ClInclude Include="Patterns\Composite.h" />
-    <ClInclude Include="Patterns\Decorator.h" />
-    <ClInclude Include="Patterns\Facade.h" />
-    <ClInclude Include="Patterns\Factory.h" />
-    <ClInclude Include="Patterns\Flyweight.h" />
-    <ClInclude Include="Patterns\Prototype.h" />
-    <ClInclude Include="Patterns\Proxy.h" />
-    <ClInclude Include="Patterns\Singleton.h" />
+    <ClInclude Include="Patterns\Behavioral\ChainOfResponsibility.h" />
+    <ClInclude Include="Patterns\Behavioral\Command.h" />
+    <ClInclude Include="Patterns\Behavioral\Iterator.h" />
+    <ClInclude Include="Patterns\Behavioral\Mediator.h" />
+    <ClInclude Include="Patterns\Behavioral\NullObject.h" />
+    <ClInclude Include="Patterns\Structual\Adapter.h" />
+    <ClInclude Include="Patterns\Structual\Bridge.h" />
+    <ClInclude Include="Patterns\Creational\Builder.h" />
+    <ClInclude Include="Patterns\Structual\Composite.h" />
+    <ClInclude Include="Patterns\Structual\Decorator.h" />
+    <ClInclude Include="Patterns\Structual\Facade.h" />
+    <ClInclude Include="Patterns\Creational\Factory.h" />
+    <ClInclude Include="Patterns\Structual\Flyweight.h" />
+    <ClInclude Include="Patterns\Creational\Prototype.h" />
+    <ClInclude Include="Patterns\Structual\Proxy.h" />
+    <ClInclude Include="Patterns\Creational\Singleton.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
