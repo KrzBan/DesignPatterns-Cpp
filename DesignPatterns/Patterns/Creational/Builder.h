@@ -17,7 +17,7 @@ namespace Builder {
 		//Works at
 		std::string company;
 		std::string occupancy;
-		double earnings;
+		double earnings = 0;
 
 		static PersonBuilder Create(std::string name = "");
 	};

@@ -80,5 +80,14 @@
     <ClInclude Include="Patterns\Behavioral\State.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Patterns\Behavioral\Strategy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns\Behavioral\TemplateMethod.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns\Functional\Monad.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -20,6 +20,11 @@
 #include "Patterns/Behavioral/NullObject.h"
 #include "Patterns/Behavioral/Observer.h"
 #include "Patterns/Behavioral/State.h"
+#include "Patterns/Behavioral/Strategy.h"
+#include "Patterns/Behavioral/TemplateMethod.h"
+
+#include "Patterns/Functional/Monad.h"
+
 
 
 int main() {
@@ -282,13 +287,64 @@ int main() {
 		data.SetData(40);
 	}
 
-	if (1) {
+	if (0) {
 		using namespace StateNS;
 
 		StateMachine sm{};
 		sm.AddRule(State::Start, Event::Any, State::Grounded);
 		sm.AddRule(State::Grounded, Event::Jump, State::Airborne);
 		sm.Options();
+	}
+
+	if (0) {
+		using namespace Strategy;
+
+		//Renderer, performs a list of tasks, but their implementation id undefined
+		//It's known only by a strategy and we can pass different strategies to a renderer
+		//and expect different outcomes
+
+		Renderer<Pipeline> renderer{};
+		renderer.RenderScene({ 1,2,3 });
+
+		Renderer<PipelineOther> otherRenderer{};
+		otherRenderer.RenderScene({ 1,2,3 });
+	}
+
+	if (0) {
+		using namespace TemplateMethod;
+
+		//Almost the same thing as Strategy,
+		//but done with inheritance, and not dynamically via ref/pointer
+		//or statically with templates
+
+		Pipeline pl1{};
+		pl1.RenderScene({ 1,2,3 });
+
+		PipelineOther pl2{};
+		pl2.RenderScene({ 4,5,6 });
+	}
+
+	if (1) {
+		using namespace Monad;
+
+		Layered layered{5};
+
+		//Let's print it!
+		if (layered.value != nullptr &&
+			*layered.value != nullptr &&
+			**layered.value != nullptr &&
+			***layered.value != nullptr)
+			std::cout << ****layered.value << '\n';;
+
+		//Lets try again, but with monad
+		maybe(layered.value)
+			.With([](auto x) { return *x; })
+			.With([](auto x) { return *x; })
+			.With([](auto x) { return *x; })
+			.Do([](auto x) {std::cout << *x << '\n'; });
+
+		//On too many With(), we get compilation error
+		//as function requires T*, but we get i.e. int, which is not a pointer
 	}
 
 	return 0;

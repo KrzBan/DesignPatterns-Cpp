@@ -156,9 +156,12 @@
     <ClInclude Include="Patterns\Behavioral\Command.h" />
     <ClInclude Include="Patterns\Behavioral\Iterator.h" />
     <ClInclude Include="Patterns\Behavioral\Mediator.h" />
+    <ClInclude Include="Patterns\Functional\Monad.h" />
     <ClInclude Include="Patterns\Behavioral\NullObject.h" />
     <ClInclude Include="Patterns\Behavioral\Observer.h" />
     <ClInclude Include="Patterns\Behavioral\State.h" />
+    <ClInclude Include="Patterns\Behavioral\Strategy.h" />
+    <ClInclude Include="Patterns\Behavioral\TemplateMethod.h" />
     <ClInclude Include="Patterns\Structual\Adapter.h" />
     <ClInclude Include="Patterns\Structual\Bridge.h" />
     <ClInclude Include="Patterns\Creational\Builder.h" />
